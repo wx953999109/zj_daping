@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'JC江城LED液晶数字 斜体';
+    src: url('../font/JC江城LED液晶数字斜体.ttf');
+}
+
+@font-face {
+    font-family: 'SF Pro SC';
+    src: url("../font/PingFangSC-Semibold.woff2") format("woff2")
+}
+
+@font-face {
+    font-family: 'SF Pro SC Light';
+    src: url("../font/PingFang SC Light.ttf")
+}

@@ -62,20 +62,24 @@ body {
 
 .data>.data-content>.con-left>.left-top {
     width: 100%;
-    height: calc(75% - 20px);
+    height: 55%;
     margin-bottom: 20px;
     position: relative;
 }
 
+.data>.data-content>.con-left>.left-top .top-bottom {
+    margin-top: 30px;
+}
+
 .data>.data-content>.con-left>.left-top>.info {
-    height: 50%;
+    height: 47%;
     width: 100%;
     /*border-radius: 4px;*/
     box-sizing: border-box;
     position: relative;
 }
 
-.data>.data-content>.con-left>.left-top>.info>.info-title {
+.data>.data-content>.con-left .info-title {
     width: 258px;
     height: 33px;
     background-image: url(../image/标题框.png);
@@ -158,9 +162,7 @@ body {
 
 .data>.data-content>.con-left>.left-bottom {
     width: 100%;
-    height: 25%;
-    background-color: rgba(0, 24, 106, 0.5);
-    border: 1px solid #20558b;
+    height: 45%;
     box-sizing: border-box;
     position: relative;
 }
@@ -171,6 +173,7 @@ body {
     padding: 0 20px;
     box-sizing: border-box;
     position: relative;
+    margin-top: 30px;
 }
 
 .data>.data-content>.con-center>.map-num {
@@ -210,7 +213,7 @@ body {
 
 .data>.data-content>.con-center>.cen-top {
     width: 100%;
-    height: calc(75% - 20px);
+    height: calc(65% - 25px);
     margin-bottom: 20px;
     /*background-color: rgba(0,24,106,0.3);*/
     /*border: 1px solid #0089ff;*/
@@ -221,11 +224,26 @@ body {
 
 .data>.data-content>.con-center>.cen-bottom {
     width: 100%;
-    height: 25%;
-    background-color: rgba(0, 24, 106, 0.5);
-    border: 1px solid #20558b;
+    height: 35%;
     box-sizing: border-box;
     position: relative;
+    margin-top: 0px;
+}
+
+.data>.data-content>.con-center .info-title {
+    width: 258px;
+    height: 33px;
+    background-image: url(../image/标题框.png);
+    background-repeat: no-repeat;
+    background-position: -20px 0px;
+    background-origin: content-box;
+    background-size: 100% 100%;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 30px;
+    padding-left: 30px;
+    font-family: SF Pro SC;
 }
 
 .data>.data-content>.con-right {
@@ -273,5 +291,75 @@ body {
 
 .data>.data-content .charts {
     width: 100%;
-    height: calc(100% - 35px);
+    height: calc(100% - 50px);
+}
+
+#echarts_1 {
+    background-image: url(../image/半透明矩形.png);
+    background-repeat: no-repeat;
+    background-position: 0px 100%;
+    background-size: 100% 30%;
+}
+
+#map {
+    background-image: url(../image/组\ 331.png);
+    background-repeat: no-repeat;
+    background-position: 0px 100%;
+    background-size: 100% 70%;
+}
+
+#list {
+    margin-top: 15px;
+    margin-left: 15px;
+    color: white;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+#list .item {
+    margin-bottom: 10px;
+}
+
+#list .raidusborder {
+    border-radius: 12px;
+    border: 1px solid yellow;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+}
+
+#list span {
+    margin: 0px 1%;
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 16px;
+}
+
+#list .no {
+    width: 16px;
+}
+
+#list .comname {
+    width: 32%;
+}
+
+
+#list .processbar {
+    width: 35%;
+    border: 1px solid #8FD8F6;
+    height: 5px;
+    border-radius: 5px;
+    background: linear-gradient(to right, black, yellow);
+    margin-bottom: 4px;
+}
+
+#list .processbar:nth-child(1) {
+    border: 1px solid yellow !important;
+    background: linear-gradient(to right, black, rgb(223, 8, 8)) !important;
+}
+
+#list .value {
+    width: 15%;
 }

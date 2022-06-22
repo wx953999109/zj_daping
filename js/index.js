@@ -3,14 +3,14 @@ $(function () {
     var myecharts = {
         echarts_1: null,
         echarts_1_data: [
-            { value: 1048, name: '句容市' },
-            { value: 735, name: '丹阳市' },
-            { value: 580, name: '丹徒区' },
-            { value: 484, name: '润州区' },
-            { value: 300, name: '京口区' },
-            { value: 456, name: '扬中市' },
-            { value: 123, name: '高新区' },
-            { value: 88, name: '新区' }
+            { value: 1, name: '句容市' },
+            { value: 2, name: '丹阳市' },
+            { value: 1, name: '丹徒区' },
+            { value: 1, name: '润州区' },
+            { value: 2, name: '京口区' },
+            { value: 2, name: '扬中市' },
+            { value: 0, name: '高新区' },
+            { value: 2, name: '新区' }
         ],
         map: null
     };
@@ -22,6 +22,123 @@ $(function () {
     //echarts_4();
     // echarts_5();
     //echarts_6();
+
+    let testdata = [
+        {
+            name: '句容市',
+            data: [
+                [14278, 9566, 1339, 249],
+                [11420, 2626, 840, 76],
+                [1256, 477, 24, 2],
+                [1, 1, 0, 0],
+                [0, 0, 0, 0]
+            ]
+        }, {
+            name: '丹阳市',
+            data: [
+                [20314, 13610, 1905, 354],
+                [16250, 3730, 1194, 107],
+                [1788, 679, 34, 2],
+                [2, 2, 1, 0],
+                [1, 1, 0, 0]
+            ]
+        }, {
+            name: '丹徒区',
+            data: [
+                [8745, 5859, 820, 152],
+                [6996, 1609, 515, 46],
+                [770, 293, 15, 1],
+                [1, 1, 1, 0],
+                [1, 0, 0, 0]
+            ]
+        }, {
+            name: '润州区',
+            data: [
+                [8961, 6003, 840, 156],
+                [7169, 1648, 527, 47],
+                [789, 300, 15, 1],
+                [1, 0, 0, 0],
+                [1, 0, 0, 0]
+            ]
+        }, {
+            name: '京口区',
+            data: [
+                [7664, 5134, 719, 134],
+                [6131, 1410, 451, 41],
+                [674, 256, 13, 0],
+                [2, 1, 0, 0],
+                [0, 0, 0, 0]
+            ]
+        }, {
+            name: '扬中市',
+            data: [
+                [22471, 15055, 2108, 391],
+                [17679, 4066, 1301, 117],
+                [1945, 739, 37, 2],
+                [2, 0, 0, 0],
+                [0, 0, 0, 0]
+            ]
+        }, {
+            name: '高新区',
+            data: [
+                [12645, 8472, 1186, 220],
+                [10916, 2511, 804, 72],
+                [1201, 456, 23, 1],
+                [0, 1, 1, 0],
+                [0, 0, 0, 0]
+            ]
+        }, {
+            name: '新区',
+            data: [
+                [7039, 4379, 512, 175],
+                [5133, 1360, 504, 35],
+                [247, 118, 13, 2],
+                [2, 1, 0, 0],
+                [1, 0, 0, 0]
+            ]
+        },
+    ];
+
+    function switchData(name) {
+        let data;
+        for (let i = 0; i < testdata.length; i++) {
+            if (testdata[i].name == name) {
+                data = testdata[i];
+                break;
+            }
+        }
+        $(".data-jczs").html(toThousands(data.data[0][0]));
+        $(".data-jczs-jsn").html(toThousands(data.data[0][1]));
+        $(".data-jczs-jn").html(toThousands(data.data[0][2]));
+        $(".data-jczs-dy").html(toThousands(data.data[0][3]));
+
+        $(".data-scxg").html(toThousands(data.data[1][0]));
+        $(".data-scxg-jsn").html(toThousands(data.data[1][1]));
+        $(".data-scxg-jn").html(toThousands(data.data[1][2]));
+        $(".data-scxg-dy").html(toThousands(data.data[1][3]));
+
+        $(".data-sczs").html(toThousands(data.data[2][0]));
+        $(".data-sczs-jsn").html(toThousands(data.data[2][1]));
+        $(".data-sczs-jn").html(toThousands(data.data[2][2]));
+        $(".data-sczs-dy").html(toThousands(data.data[2][3]));
+
+        $(".data-wzzs").html(toThousands(data.data[3][0]));
+        $(".data-wzzs-jsn").html(toThousands(data.data[3][1]));
+        $(".data-wzzs-jn").html(toThousands(data.data[3][2]));
+        $(".data-wzzs-dy").html(toThousands(data.data[3][3]));
+
+        $(".data-zgzs").html(toThousands(data.data[4][0]));
+        $(".data-zgzs-jsn").html(toThousands(data.data[4][1]));
+        $(".data-zgzs-jn").html(toThousands(data.data[4][2]));
+        $(".data-zgzs-dy").html(toThousands(data.data[4][3]));
+
+    }
+
+    const toThousands = (num = 0) => {
+        return num.toString().replace(/\d+/, function (n) {
+            return n.replace(/(\d)(?=(?:\d{3})+$)/g, '$1,');
+        });
+    };
 
     function echarts_1() {
         // 基于准备好的dom，初始化echarts实例
@@ -93,9 +210,14 @@ $(function () {
         myChart.on('selectchanged', (e) => {
             console.log('e', e)
             let dataIndex = e.fromActionPayload.dataIndexInside;
+            let name;
+            if (myecharts.echarts_1_data && myecharts.echarts_1_data[dataIndex]) {
+                name = myecharts.echarts_1_data[dataIndex].name;
+                switchData(name);
+            }
             myecharts.map?.dispatchAction({
                 type: 'geoSelect',
-                name: myecharts.echarts_1_data[dataIndex].name,
+                name: name,
             });
         });
         myChart.dispatchAction({
@@ -551,6 +673,11 @@ $(function () {
                 type: 'select',
                 name: e.name,
             });
+            myecharts.map?.dispatchAction({
+                type: 'geoSelect',
+                name: e.name,
+            });
+            switchData(e.name);
         });
         myecharts.map?.dispatchAction({
             type: 'geoSelect',
@@ -564,7 +691,8 @@ $(function () {
         // prettier-ignore
         let dataAxis = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
         // prettier-ignore
-        let data = [220, 182, 191, 234, 290, 520, 310, 123, 442, 321, 90, 149];
+        let data = [1880, 1731, 1901, 1920, 1997, 1066, 1399,
+            1215, 1121, 1073, 1302, 1223];
         let yMax = 500;
         let dataShadow = [];
         for (let i = 0; i < data.length; i++) {

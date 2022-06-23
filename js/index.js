@@ -113,6 +113,7 @@ $(function () {
 
     var randomIndex = 0;
     setInterval(() => {
+        return;
         if (!testdata) return;
         console.log('setInterval');
         if (randomIndex >= testdata.length) {
@@ -131,6 +132,7 @@ $(function () {
 
     function switchData(name) {
         if (!testdata) return;
+        $(".areatitle").html(name + "监测情况");
         let data;
         for (let i = 0; i < testdata.length; i++) {
             if (testdata[i].name == name) {

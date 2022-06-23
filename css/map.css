@@ -346,38 +346,43 @@ body {
 }
 
 #list .processbar {
-    width: 35%;
+    width: 0%;
     border: 1px solid #8FD8F6;
     height: 5px;
     border-radius: 5px;
     background: linear-gradient(to right, black, #8FD8F6);
     margin-bottom: 4px;
+    transition: width 0.5s linear 0s;
 }
 
-#list .item_first .processbar  {
+#list .item_first .processbar {
     border-color: yellow;
     background: linear-gradient(to right, black, yellow);
 }
 
 
-#list .item_second .no  {
-    border-color: #C0C4CC ;
+#list .item_second .no {
+    border-color: #C0C4CC;
 }
-#list .item_second .processbar  {
-    border-color: #C0C4CC ;
+
+#list .item_second .processbar {
+    border-color: #C0C4CC;
     background: linear-gradient(to right, black, #F7F7F8);
 }
 
-#list .item_third .no  {
-    border-color: #C47D02 ;
+#list .item_third .no {
+    border-color: #C47D02;
 }
-#list .item_third .processbar  {
+
+#list .item_third .processbar {
     border-color: #C47D02;
     background: linear-gradient(to right, black, #C47D02);
+
 }
 
 #list .value {
     width: 15%;
+    float: right;
 }
 
 /* .info-main .info-r-3 span,
